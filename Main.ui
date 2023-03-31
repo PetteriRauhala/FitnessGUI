@@ -59,6 +59,12 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="displayFormat">
+     <string>yyyy-MM-dd</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="birthLabel">
     <property name="geometry">
@@ -87,6 +93,12 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="minimum">
+     <double>100.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>400.000000000000000</double>
+    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
@@ -106,7 +118,7 @@
      <string>Pituus</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="weightSpinBox_2">
+   <widget class="QDoubleSpinBox" name="weightSpinBox">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -114,6 +126,12 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <double>20.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>300.990000000000009</double>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -134,7 +152,7 @@
      <string>Paino</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="neckSpinBox_3">
+   <widget class="QDoubleSpinBox" name="neckSpinBox">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -143,8 +161,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="minimum">
+     <double>10.000000000000000</double>
+    </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="waistSpinBox_4">
+   <widget class="QDoubleSpinBox" name="waistSpinBox">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -152,6 +173,12 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <double>30.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>200.990000000000009</double>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -190,7 +217,7 @@
      <string>Vyötärö</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="hipsSpinBox_5">
+   <widget class="QDoubleSpinBox" name="hipSpinBox">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -198,6 +225,12 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <double>10.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>200.990000000000009</double>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -244,7 +277,7 @@
      <string>Tallenna</string>
     </property>
    </widget>
-   <widget class="QDateEdit" name="weighingDateEdit_2">
+   <widget class="QDateEdit" name="weighingDateEdit">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -252,6 +285,12 @@
       <width>121</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="displayFormat">
+     <string>yyyy-MM-dd</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -320,13 +359,23 @@
     <property name="placeholderText">
      <string>Valitse sukupuoli</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Mies</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nainen</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="bmiLabel">
     <property name="geometry">
      <rect>
       <x>50</x>
       <y>300</y>
-      <width>141</width>
+      <width>501</width>
       <height>31</height>
      </rect>
     </property>
@@ -418,7 +467,7 @@
      <x>0</x>
      <y>0</y>
      <width>746</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
