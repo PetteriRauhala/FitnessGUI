@@ -27,7 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.genderCB = self.genderComboBox
         self.weighingDateE = self.weighingDateEdit
 
-        # Set the weighing date to current ...
+        # Set the weighing date to current date
         self.weighingDateE.setDate(QtCore.QDate.currentDate())
         self.heihgtSB = self.heihgtSpinBox
         self.weightSB = self.weightSpinBox
@@ -35,9 +35,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.waistSB = self.waistSpinBox
         self.hipSB = self.hipSpinBox
     
+
+        # TODO: Disable Calculate button until values have been edited
         self.calculatePB = self.calculatePushButton
         self.calculatePB.clicked.connect(self.calculateAll)
 
+        # TODO: Disable Save button until new values are calculated
         self.savePB = self.savePushButton
         self.savePB.clicked.connect(self.saveData)
 
@@ -71,6 +74,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.bmiLabel.setText(str(bmi))
 
+    # TODO: Make this method to save results to a disk drive
     # Saves data to disk
     def saveData(self):
         pass
