@@ -78,7 +78,7 @@
      <string>Syntymäaika</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="heihgtDoubleSpinBox">
+   <widget class="QDoubleSpinBox" name="heihgtSpinBox">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -106,7 +106,7 @@
      <string>Pituus</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="weightDoubleSpinBox_2">
+   <widget class="QDoubleSpinBox" name="weightSpinBox_2">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -134,7 +134,7 @@
      <string>Paino</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="neckDoubleSpinBox_3">
+   <widget class="QDoubleSpinBox" name="neckSpinBox_3">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -144,7 +144,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="waistDoubleSpinBox_4">
+   <widget class="QDoubleSpinBox" name="waistSpinBox_4">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -190,7 +190,7 @@
      <string>Vyötärö</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="hipsDoubleSpinBox_5">
+   <widget class="QDoubleSpinBox" name="hipsSpinBox_5">
     <property name="geometry">
      <rect>
       <x>400</x>

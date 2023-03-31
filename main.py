@@ -7,7 +7,6 @@ from PyQt6 import QtCore # Core functionality of Qt
 from PyQt6 import QtWidgets # UI elements functionality 
 from PyQt6.uic.load_ui import loadUi
 
-
 # Class for the main window 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -18,7 +17,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
 
         # Load the UI file 
-        loadUi('main.ui')
+        loadUi('main.ui', self)
 
         # Define UI Controls ie buttons and input fields
         self.calculatePB = self.calculatePushButton
@@ -26,19 +25,14 @@ class MainWindow(QtWidgets.QMainWindow):
 
     # Define slots ie methods 
     def calculateAll(self):
-        self.bmiLabel.setValue('100')
-
+        self.bmiLabel.setText('100')
 
 if __name__ == "__main__":
     # Create the application
     app = QtWidgets.QApplication(sys.argv)
 
+    # Create the Main Window object from MainWindow class and show it on the screen
     appWindow = MainWindow()
-    appWindow.main.show()
+    appWindow.show()
     sys.exit(app.exec())
-
-
-   
-
-    # Start the application 
 
