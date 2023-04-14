@@ -8,6 +8,7 @@ from PyQt5 import QtWidgets as QW # UI elements functionality
 from PyQt5.uic import loadUi # Reads the UI file
 import kuntoilija # Home brew module for athlete objects
 import timetools # DIY module for date and time calculations
+
 # TODO: Import some library able to plot trends and make it as widget in the UI
 
 # Class for the main window
@@ -28,6 +29,7 @@ class MainWindow(QW.QMainWindow):
 
         self.birthDateE = self.birthDateEdit
         self.birthDateE.dateChanged.connect(self.activateCalculatePB)
+
         self.genderCB = self.genderComboBox
         self.genderCB.currentTextChanged.connect(self.activateCalculatePB)
         self.weighingDateE = self.weighingDateEdit
@@ -37,12 +39,16 @@ class MainWindow(QW.QMainWindow):
 
         self.heightSB = self.heightSpinBox
         self.heightSB.valueChanged.connect(self.activateCalculatePB)
+
         self.weightSB = self.weightSpinBox
         self.weightSB.valueChanged.connect(self.activateCalculatePB)
+
         self.neckSB =  self.neckSpinBox
         self.neckSB.valueChanged.connect(self.activateCalculatePB)
+
         self.waistSB = self.waistSpinBox
         self.waistSB.valueChanged.connect(self.activateCalculatePB)
+
         self.hipSB = self.hipSpinBox
         self.hipSB.setEnabled(False)
         self.hipSB.valueChanged.connect(self.activateCalculatePB)
@@ -87,8 +93,12 @@ class MainWindow(QW.QMainWindow):
 
         if self.genderCB.currentText() == 'Nainen':
             self.hipSB.setEnabled(True)
+            
             if self.hipSB.value() == 50:
                 self.calculatePB.setEnabled(False)
+        
+        else:
+            self.hipSB.setEnabled(False)
 
 
     # Calculates BMI, Finnish and US fat percentages and updates corresponding labels
@@ -98,6 +108,7 @@ class MainWindow(QW.QMainWindow):
         weight = self.weightSB.value()
         self.calculatePB.setEnabled(False)
         self.savePB.setEnabled(True)
+
         #  Convert birthday to ISO string using QtCore's methods
         birthday = self.birthDateE.date().toString(format=QtCore.Qt.ISODate)
         
@@ -115,11 +126,31 @@ class MainWindow(QW.QMainWindow):
         # Calculate time difference using our home made tools
         age = timetools.datediff2(birthday, dateOfWeighing, 'year')
 
-        # Create an athlete from Kuntoilija class
-        athlete = kuntoilija.Kuntoilija(name, height, weight, age, gender, dateOfWeighing)
-        bmi = athlete.bmi
+        neck = self.neckSB.value()
+        waist = self.waistSB.value()
+        hip = self.hipSB.value()
 
+        if age >= 18:    
+            # Create an athlete from Kuntoilija class
+            athlete = kuntoilija.Kuntoilija(name, height, weight, age, gender, dateOfWeighing)
+        
+        else:
+            # Create the athlete from JunioriKuntoilija class for age under 18
+            athlete = kuntoilija.JunioriKuntoilija(name, height, weight, age, gender)
+
+        bmi = athlete.bmi
         self.bmiLabel.setText(str(bmi))
+
+        fiFatPercentage = athlete.rasvaprosentti()
+
+        if gender == 1:
+            usaFatPercentage = athlete.usa_rasvaprosentti_mies(height, waist, neck)
+        else:
+            usaFatPercentage= athlete.usa_rasvaprosentti_nainen(height, waist, hip, neck)
+
+        # Set fat percentage labels
+        self.fatFiLabel.setText(str(fiFatPercentage))
+        self.fatUsLabel.setText(str(usaFatPercentage))
 
     # TODO: Make this method to save results to a disk drive
     # Saves data to disk
@@ -128,6 +159,7 @@ class MainWindow(QW.QMainWindow):
 
 
 if __name__ == "__main__":
+
     # Create the application
     app = QW.QApplication(sys.argv)
 
