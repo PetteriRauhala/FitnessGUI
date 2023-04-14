@@ -14,24 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="nameLineEdit">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>40</y>
-      <width>281</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Syötä tähän oma nimesi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="nameLabel">
     <property name="geometry">
      <rect>
@@ -59,6 +41,16 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="dateTime">
+     <datetime>
+      <hour>0</hour>
+      <minute>0</minute>
+      <second>0</second>
+      <year>1900</year>
+      <month>1</month>
+      <day>1</day>
+     </datetime>
+    </property>
     <property name="displayFormat">
      <string>yyyy-MM-dd</string>
     </property>
@@ -84,7 +76,7 @@
      <string>Syntymäaika</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="heihgtSpinBox">
+   <widget class="QDoubleSpinBox" name="heightSpinBox">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -458,6 +450,19 @@
     </property>
     <property name="text">
      <string>Sukupuoli</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nameLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>281</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Syötä tähän nimesi&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
