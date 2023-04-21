@@ -2,16 +2,18 @@
 # ===================================
 
 # LIBRARIES AND MODULES
-import sys # For system arguments if needed to run the app
-from PyQt5 import QtCore # Core functionality of Qt
-from PyQt5 import QtWidgets as QW # UI elements functionality
-from PyQt5.uic import loadUi # Reads the UI file
-import kuntoilija # Home brew module for athlete objects
-import timetools # DIY module for date and time calculations
+import sys  # For system arguments if needed to run the app
+from PyQt5 import QtCore  # Core functionality of Qt
+from PyQt5 import QtWidgets as QW  # UI elements functionality
+from PyQt5.uic import loadUi  # Reads the UI file
+import kuntoilija  # Home brew module for athlete objects
+import timetools  # DIY module for date and time calculations
 
 # TODO: Import some library able to plot trends and make it as widget in the UI
 
 # Class for the main window
+
+
 class MainWindow(QW.QMainWindow):
 
     """MainWindow for the fitness app"""
@@ -35,7 +37,7 @@ class MainWindow(QW.QMainWindow):
         self.weighingDateE = self.weighingDateEdit
 
         # Set the weighing date to the current date
-        self.weighingDateE.setDate(QtCore.QDate.currentDate()) 
+        self.weighingDateE.setDate(QtCore.QDate.currentDate())
 
         self.heightSB = self.heightSpinBox
         self.heightSB.valueChanged.connect(self.activateCalculatePB)
@@ -43,23 +45,22 @@ class MainWindow(QW.QMainWindow):
         self.weightSB = self.weightSpinBox
         self.weightSB.valueChanged.connect(self.activateCalculatePB)
 
-        self.neckSB =  self.neckSpinBox
+        self.neckSB = self.neckSpinBox
         self.neckSB.valueChanged.connect(self.activateCalculatePB)
 
         self.waistSB = self.waistSpinBox
         self.waistSB.valueChanged.connect(self.activateCalculatePB)
 
-        self.hipSB = self.hipSpinBox
-        self.hipSB.setEnabled(False)
-        self.hipSB.valueChanged.connect(self.activateCalculatePB)
-        
-        # TODO: Disable Calculate button until values have been edited
+        self.hipsSB = self.hipsSpinBox
+        self.hipsSB.setEnabled(False)
+        self.hipsSB.valueChanged.connect(self.activateCalculatePB)
+
         # self.calculatePB = self.calculatePushButton
-        self.calculatePB = self.findChild(QW.QPushButton, 'calculatePushButton')
+        self.calculatePB = self.findChild(
+            QW.QPushButton, 'calculatePushButton')
         self.calculatePB.clicked.connect(self.calculateAll)
         self.calculatePB.setEnabled(False)
 
-        # TODO: Disable Save button until new values are calculated
         # self.savePB = self.savePushButton
         self.savePB = self.findChild(QW.QPushButton, 'savePushButton')
         self.savePB.clicked.connect(self.saveData)
@@ -67,7 +68,6 @@ class MainWindow(QW.QMainWindow):
 
     # Define slots ie methods
 
-    
     def activateCalculatePB(self):
         self.calculatePB.setEnabled(True)
         if self.nameLE.text() == '':
@@ -75,7 +75,7 @@ class MainWindow(QW.QMainWindow):
 
         if self.birthDateE.date() == QtCore.QDate(1900, 1, 1):
             self.calculatePB.setEnabled(False)
-        
+
         if self.genderCB.currentText() == '':
             self.calculatePB.setEnabled(False)
 
@@ -92,26 +92,26 @@ class MainWindow(QW.QMainWindow):
             self.calculatePB.setEnabled(False)
 
         if self.genderCB.currentText() == 'Nainen':
-            self.hipSB.setEnabled(True)
-            
-            if self.hipSB.value() == 50:
-                self.calculatePB.setEnabled(False)
-        
-        else:
-            self.hipSB.setEnabled(False)
+            self.hipsSB.setEnabled(True)
 
+            if self.hipsSB.value() == 50:
+                self.calculatePB.setEnabled(False)
+
+        else:
+            self.hipsSB.setEnabled(False)
 
     # Calculates BMI, Finnish and US fat percentages and updates corresponding labels
+
     def calculateAll(self):
         name = self.nameLE.text()
-        height = self.heightSB.value() # Spinbox value as an integer
+        height = self.heightSB.value()  # Spinbox value as an integer
         weight = self.weightSB.value()
         self.calculatePB.setEnabled(False)
         self.savePB.setEnabled(True)
 
         #  Convert birthday to ISO string using QtCore's methods
         birthday = self.birthDateE.date().toString(format=QtCore.Qt.ISODate)
-        
+
         # Set Gender Value according to Combobox value
         gendertext = self.genderCB.currentText()
         if gendertext == 'Mies':
@@ -120,40 +120,38 @@ class MainWindow(QW.QMainWindow):
         else:
             gender = 0
 
-        # Convert Weighing day to ISO string    
+        # Convert Weighing day to ISO string
         dateOfWeighing = self.weighingDateE.date().toString(format=QtCore.Qt.ISODate)
-        
+
         # Calculate time difference using our home made tools
         age = timetools.datediff2(birthday, dateOfWeighing, 'year')
 
         neck = self.neckSB.value()
         waist = self.waistSB.value()
-        hip = self.hipSB.value()
+        hips = self.hipsSB.value()
 
-        if age >= 18:    
-            # Create an athlete from Kuntoilija class
-            athlete = kuntoilija.Kuntoilija(name, height, weight, age, gender, dateOfWeighing)
-        
-        else:
-            # Create the athlete from JunioriKuntoilija class for age under 18
-            athlete = kuntoilija.JunioriKuntoilija(name, height, weight, age, gender)
+        athlete = kuntoilija.Kuntoilija(
+            name, height, weight, age, gender, neck, waist, hips, dateOfWeighing)
 
         bmi = athlete.bmi
         self.bmiLabel.setText(str(bmi))
 
-        fiFatPercentage = athlete.rasvaprosentti()
-
-        if gender == 1:
-            usaFatPercentage = athlete.usa_rasvaprosentti_mies(height, waist, neck)
-        else:
-            usaFatPercentage= athlete.usa_rasvaprosentti_nainen(height, waist, hip, neck)
+        fiFatPercentage = athlete.fi_rasva
+        usaFatPercentage = athlete.usa_rasva
 
         # Set fat percentage labels
         self.fatFiLabel.setText(str(fiFatPercentage))
         self.fatUsLabel.setText(str(usaFatPercentage))
 
-    # TODO: Make this method to save results to a disk drive
+    def constructData(self, athlete, fiFat, usaFat):
+        # A dictionary for single weighing of an athlete
+        athlete_data_row = {'nimi': athlete.nimi, 'pituus': athlete.pituus, 'paino': athlete.paino,
+                            'ika': athlete.ika, 'sukupuoli': athlete.sukupuoli, 'pvm': athlete.punnitus_paiva,
+                            'bmi': athlete.bmi, 'rasvaprosenttiFi': fiFat, 'rasvaprosenttiUs': usaFat}
+        return athlete_data_row
+
     # Saves data to disk
+
     def saveData(self):
         pass
 
@@ -167,4 +165,3 @@ if __name__ == "__main__":
     appWindow = MainWindow()
     appWindow.show()
     sys.exit(app.exec())
-
