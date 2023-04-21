@@ -18,7 +18,7 @@ def datediff(d1, d2):
     d1 = datetime.datetime.strptime(d1, "%Y-%m-%d")
     d2 = datetime.datetime.strptime(d2, "%Y-%m-%d")
     difference = abs((d2 - d1).days)
-    return difference
+    return round(difference,1)
 
 
 def timediff(t1, t2):
@@ -58,7 +58,7 @@ def datediff2(d1, d2, unit):
     units = {'day': 1, 'year': 365, 'month': 30}
     divider = units[unit]  # Choose by unit argument
     value = difference / divider
-    return value
+    return round(value,1)
 
 
 def timediff2(t1, t2, unit):
