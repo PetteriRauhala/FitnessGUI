@@ -105,3 +105,4 @@ if __name__ == "__main__":
      print('Suomalainen rasvaprosentti on', kuntoilija.fi_rasva)
      print('Amerikkalainen rasvaprosentti on', kuntoilija.usa_rasva)
 
+

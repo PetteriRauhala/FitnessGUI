@@ -155,3 +155,5 @@ if __name__ == "__main__":
             pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys)
 
     print("USA:n armeijan kaavalla rasvaprosenttisi on", usa_rasvaprosentti)
+
+    

@@ -154,4 +154,5 @@ if __name__ == "__main__":
     print ('Ero oli', ero, 'minuuttia')
 
     print (dateTimeDiff('2023-04-28 10:00:00', '2023-04-29 11:00:00'), 'tuntia')
+
     

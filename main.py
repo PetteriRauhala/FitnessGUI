@@ -159,6 +159,7 @@ class MainWindow(QW.QMainWindow):
         self.fatUsLabel.setText(str(usaFatPercentage))
 
     def constructData(self, athlete):
+    
 
         # A dictionary for single weighing of an athlete
         athlete_data_row = {'nimi': athlete.nimi, 'pituus': athlete.pituus, 'paino': athlete.paino,
