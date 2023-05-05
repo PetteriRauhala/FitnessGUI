@@ -22,9 +22,12 @@ class ProcessJsonFile():
         Returns:
             tuple: Error code, Error message, detailed error message
         """
-        with open(file, 'w') as fileToWrite:
-            json.dump(data, fileToWrite, indent=4)
-        status = (0, 'Tallennus onnistui', 'All data saved succesfully')
+        try:
+            with open(file, 'w') as fileToWrite:
+                json.dump(data, fileToWrite, indent=4)
+            status = (0, 'Tallennus onnistui :)', 'All data saved succesfully')
+        except Exception as error:
+            status = (1, 'Tallennus ei onnistunut :(', str(error))
         return status
 
     def readData(self, file):
@@ -44,7 +47,7 @@ class ProcessJsonFile():
             data = (0, message, detailedMessage, athlete_data)
         return data
     
-    def appendDAATA(self, file, data):
+    def appendDATA(self, file, data):
         """Adds a new json object to the file
 
         Args:
