@@ -314,7 +314,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Syötä tähän nimesi&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="dimensionFrame">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -384,6 +384,9 @@ background-image: url(:/pictures/NaisSlice.png);</string>
       <height>21</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>10</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -396,6 +399,9 @@ background-image: url(:/pictures/NaisSlice.png);</string>
       <width>171</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <number>30</number>
     </property>
     <property name="maximum">
      <number>150</number>
@@ -412,6 +418,9 @@ background-image: url(:/pictures/NaisSlice.png);</string>
       <width>251</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <number>50</number>
     </property>
     <property name="maximum">
      <number>150</number>
@@ -481,6 +490,9 @@ background-image: url(:/pictures/NaisSlice.png);</string>
       <height>651</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>100</number>
+    </property>
     <property name="maximum">
      <number>250</number>
     </property>
@@ -522,6 +534,9 @@ background-image: url(:/pictures/NaisSlice.png);</string>
       <width>91</width>
       <height>111</height>
      </rect>
+    </property>
+    <property name="minimum">
+     <number>20</number>
     </property>
     <property name="maximum">
      <number>200</number>
