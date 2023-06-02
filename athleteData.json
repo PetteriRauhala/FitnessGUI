@@ -1,0 +1,68 @@
+[
+    {
+        "nimi": "Matti",
+        "pituus": 180.0,
+        "paino": 80.0,
+        "ika": 23.284931506849315,
+        "sukupuoli": 1,
+        "pvm": "2023-04-21",
+        "bmi": 24.7,
+        "rasvaprosenttiFi": 18.8,
+        "rasvaprosenttiUs": 22.0
+    },
+    {
+        "nimi": "Mikko",
+        "pituus": 185.0,
+        "paino": 85.0,
+        "ika": 22.8,
+        "sukupuoli": 1,
+        "pvm": "2023-04-21",
+        "bmi": 24.8,
+        "rasvaprosenttiFi": 18.8,
+        "rasvaprosenttiUs": 22.5
+    },
+    {
+        "nimi": "Kaaleppi",
+        "pituus": 190.0,
+        "paino": 85.0,
+        "ika": 73.4,
+        "sukupuoli": 0,
+        "pvm": "2023-05-05",
+        "bmi": 23.5,
+        "rasvaprosenttiFi": 39.7,
+        "rasvaprosenttiUs": 34.8
+    },
+    {
+        "nimi": "Jooseppi",
+        "pituus": 170.0,
+        "paino": 60.0,
+        "ika": 62.9,
+        "sukupuoli": 0,
+        "pvm": "2023-05-05",
+        "bmi": 20.8,
+        "rasvaprosenttiFi": 34.0,
+        "rasvaprosenttiUs": 28.5
+    },
+    {
+        "nimi": "Teppo Testi",
+        "pituus": 171.0,
+        "paino": 75.0,
+        "ika": 23.4,
+        "sukupuoli": 1,
+        "pvm": "2023-05-05",
+        "bmi": 25.6,
+        "rasvaprosenttiFi": 19.9,
+        "rasvaprosenttiUs": 26.8
+    },
+    {
+        "nimi": "Teppo Testi",
+        "pituus": 171.0,
+        "paino": 75.0,
+        "ika": 23.4,
+        "sukupuoli": 1,
+        "pvm": "2023-05-05",
+        "bmi": 25.6,
+        "rasvaprosenttiFi": 19.9,
+        "rasvaprosenttiUs": 26.8
+    }
+]

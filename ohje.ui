@@ -6,36 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>401</width>
-    <height>123</height>
+    <width>465</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>371</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Tämä on ohje, jossa kerrotaan, miten tätä ohjelmaa käytetään.</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="closePushButton">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>60</y>
+     <x>180</x>
+     <y>340</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -49,7 +31,49 @@
     <string>Sulje</string>
    </property>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>471</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/newPrefix/kuntoilutaustapieni.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>371</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tämä on ohje, jossa kerrotaan, miten tätä ohjelmaa käytetään.</string>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>closePushButton</zorder>
+  <zorder>label</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="pictures.qrc"/>
+ </resources>
  <connections/>
 </ui>
